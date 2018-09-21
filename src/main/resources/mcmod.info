@@ -1,0 +1,16 @@
+[
+{
+  "modid": "populatedworld",
+  "name": "Populated World",
+  "description": "Attempts to add more life to minecraft by adding in many populated structures",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TheExceptionist"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
