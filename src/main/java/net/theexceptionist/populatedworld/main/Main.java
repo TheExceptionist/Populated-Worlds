@@ -25,6 +25,8 @@ import net.theexceptionist.populatedworld.main.entity.EntityVillagerSoldier;
 public class Main
 {
 
+	
+
 	@SidedProxy(serverSide = "net.theexceptionist.populatedworld.main.CommonProxy", clientSide = "net.theexceptionist.populatedworld.main.ClientProxy")
     public static IProxy proxy;
 	
@@ -34,6 +36,7 @@ public class Main
 	public static Logger logger = LogManager.getLogger(Reference.NAME);
 	
 	public static int chapel_spawnrate = 5;
+	public static int hamlet_spawnrate = 5;
 	//Config file
 	private static File config_file;
 	private static BufferedReader reader;
@@ -43,6 +46,7 @@ public class Main
 	    			"#Spawnrate of chapel\n",
 	    			"#out of 1000! So 5 means a 0.5% chance per chunk loaded!\n",
 	    			"chapel_spawnrate=5\n",
+	    			"hamlet_spawnrate=5\n",
 	    			/*"#do not set above max_distance or below 3!\n",
 	    			"min_distance=3\n",
 	    			"#Spawnrate for the villagers outside the villages, 0 or -1 turns them off!\n",
@@ -174,23 +178,10 @@ public class Main
 				{
 					chapel_spawnrate = Integer.parseInt(parts[1]);
 				}
-				/*if(parts[0].contains("max"))
+				else if(parts[0].contains("hamlet"))
 				{
-					max_distance = Integer.parseInt(parts[1]);
+					hamlet_spawnrate = Integer.parseInt(parts[1]);	
 				}
-				else if(parts[0].contains("min"))
-				{
-					min_distance = Integer.parseInt(parts[1]);
-				}
-				else if(parts[0].contains("mer"))
-				{
-					merchant_spawn = Integer.parseInt(parts[1]);
-				}
-				else
-				{
-					//System.out.println(parts[0]+" "+parts[1]);
-					new BiomeSpawn(parts[0], Integer.parseInt(parts[1]));
-				}*/
 			}
 			
 			

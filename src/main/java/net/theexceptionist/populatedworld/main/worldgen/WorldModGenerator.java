@@ -16,10 +16,12 @@ import net.theexceptionist.populatedworld.main.Reference;
 
 public class WorldModGenerator implements IWorldGenerator{
 	private final WorldGenVillageStructure chapelGenerator;
+	private final WorldGenVillageStructure hamletGenerator;
 	
 	public WorldModGenerator()
 	{
 		this.chapelGenerator = new WorldGenVillageStructure("Lone Chapel", Main.chapel_spawnrate, 0.99f);
+		this.hamletGenerator = new WorldGenVillageStructure("Hamlet", Main.hamlet_spawnrate, 0.99f);
 	}
 
 	@Override
@@ -30,7 +32,15 @@ public class WorldModGenerator implements IWorldGenerator{
 		int y = world.getTopSolidOrLiquidBlock(new BlockPos(x, 80, z)).getY();
 		final BlockPos basePos = new BlockPos(x, y, z);
 		
-		chapelGenerator.trySpawn(basePos, world, random);
+		
+		if(random.nextInt(100) < 25) 
+		{
+			chapelGenerator.trySpawn(basePos, world, random);
+		}
+		else if(random.nextInt(100) < 10) 
+		{
+			hamletGenerator.trySpawn(basePos, world, random);
+		}
 	}
 
 }
